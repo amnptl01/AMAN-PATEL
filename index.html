@@ -60,19 +60,20 @@ margin-top:-10px;
 font-weight:normal;
 }
 
-/* Updated Quote Section */
+/* Quote – Old Style Back */
 .quote{
 position:absolute;
-bottom:40px;   /* Much lower */
+bottom:80px;
 width:100%;
 text-align:center;
-font-size:38px;  /* Bigger size */
-font-family:'Brush Script MT', cursive;
-font-weight:700;
+font-size:32px;
+font-family:'Trebuchet MS', cursive;
+font-weight:600;
 letter-spacing:1px;
-animation:fade 4s infinite;
-color:#ffffff;   /* Fixed white for visibility */
-text-shadow:0 0 20px rgba(0,0,0,0.6), 0 0 25px rgba(255,255,255,0.8);
+animation:fade 3s infinite;
+color:white;
+text-shadow:0 0 15px rgba(0,0,0,0.5),
+             0 0 20px rgba(255,255,255,0.8);
 }
 
 @keyframes fade{
@@ -124,7 +125,7 @@ q.innerText=quotes[i];
 i=(i+1)%quotes.length;
 }
 
-setInterval(changeQuote,4000);
+setInterval(changeQuote,3000);
 changeQuote();
 
 document.addEventListener("click",function(e){
