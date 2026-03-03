@@ -12,11 +12,11 @@
 
 <br><br>
 
-<img src="https://media.giphy.com/media/xT0xeJpnrWC4XWblEk/giphy.gif" width="420"/>
+<img src="https://media.giphy.com/media/3o6Zt481isNVuQI1l6/giphy.gif" width="420"/>
 
 <br><br>
 
-<img src="https://media.giphy.com/media/3o7TKtnuHOHHUjR38Y/giphy.gif" width="300"/>
+<img src="https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif" width="350"/>
 
 <br><br>
 
