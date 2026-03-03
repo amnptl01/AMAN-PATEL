@@ -3,63 +3,67 @@
 <head>
 <title>Happy Holi</title>
 <style>
-body {
-  margin: 0;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(-45deg, #ff512f, #dd2476, #24c6dc, #5433ff);
-  background-size: 400% 400%;
-  animation: gradient 8s ease infinite;
-  overflow: hidden;
-  color: white;
-  text-align: center;
+body{
+margin:0;
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+font-family:Arial, sans-serif;
+background:linear-gradient(45deg,#ff512f,#dd2476,#24c6dc,#5433ff);
+background-size:400% 400%;
+animation:bg 8s infinite alternate;
+color:white;
+text-align:center;
 }
 
-@keyframes gradient {
-  0% {background-position: 0% 50%;}
-  50% {background-position: 100% 50%;}
-  100% {background-position: 0% 50%;}
+@keyframes bg{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
 }
 
-h1 {
-  font-size: 60px;
-  text-shadow: 0 0 20px rgba(255,255,255,0.8);
+h1{
+font-size:80px;
+margin:0;
+text-shadow:0 0 25px white;
+animation:glow 2s infinite alternate;
 }
 
-h3 {
-  margin-top: -10px;
-  font-weight: normal;
+@keyframes glow{
+from{transform:scale(1);}
+to{transform:scale(1.05);}
 }
 
-.quote {
-  margin-top: 30px;
-  font-size: 20px;
-  animation: fade 3s infinite alternate;
+h3{
+margin-top:-10px;
+font-weight:normal;
 }
 
-@keyframes fade {
-  from {opacity: 0.5;}
-  to {opacity: 1;}
+.quote{
+margin-top:30px;
+font-size:22px;
+animation:fade 3s infinite;
 }
 
-.dot {
-  position: absolute;
-  width: 15px;
-  height: 15px;
-  background: white;
-  border-radius: 50%;
-  opacity: 0.6;
-  animation: float 6s infinite ease-in-out;
+@keyframes fade{
+0%{opacity:0;}
+50%{opacity:1;}
+100%{opacity:0;}
 }
 
-@keyframes float {
-  0% {transform: translateY(0);}
-  50% {transform: translateY(-50px);}
-  100% {transform: translateY(0);}
+.blast{
+position:absolute;
+border-radius:50%;
+pointer-events:none;
+animation:explode 1s forwards;
+}
+
+@keyframes explode{
+0%{transform:scale(0);opacity:1;}
+100%{transform:scale(6);opacity:0;}
 }
 </style>
 </head>
@@ -69,12 +73,47 @@ h3 {
 <h1>Happy Holi 🌈</h1>
 <h3>by Aman</h3>
 
-<div class="quote">May your life be filled with colors, joy & success ✨</div>
+<div class="quote" id="quoteText"></div>
 
-<div class="dot" style="top:20%; left:10%;"></div>
-<div class="dot" style="top:70%; left:80%;"></div>
-<div class="dot" style="top:50%; left:30%;"></div>
-<div class="dot" style="top:30%; left:70%;"></div>
+<script>
+
+let quotes=[
+"May your life be full of colors 🌸",
+"Celebrate love and happiness 🎉",
+"Let the colors spread joy 💕",
+"Wishing you vibrant moments 🌈",
+"Play safe, enjoy fully 🥳",
+"Colors of Holi brighten your life ✨",
+"Stay happy, stay colorful 💖"
+];
+
+let q=document.getElementById("quoteText");
+let i=0;
+
+function changeQuote(){
+q.innerText=quotes[i];
+q.style.color=`hsl(${Math.random()*360},100%,60%)`;
+i=(i+1)%quotes.length;
+}
+
+setInterval(changeQuote,3000);
+changeQuote();
+
+document.addEventListener("click",function(e){
+for(let j=0;j<15;j++){
+let c=document.createElement("div");
+c.className="blast";
+c.style.width="20px";
+c.style.height="20px";
+c.style.left=e.clientX+"px";
+c.style.top=e.clientY+"px";
+c.style.background=`hsl(${Math.random()*360},100%,50%)`;
+document.body.appendChild(c);
+setTimeout(()=>c.remove(),1000);
+}
+});
+
+</script>
 
 </body>
 </html>
