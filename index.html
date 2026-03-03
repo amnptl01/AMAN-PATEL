@@ -60,17 +60,19 @@ margin-top:-10px;
 font-weight:normal;
 }
 
+/* Updated Quote Section */
 .quote{
 position:absolute;
-bottom:80px;
+bottom:40px;   /* Much lower */
 width:100%;
 text-align:center;
-font-size:32px;
+font-size:38px;  /* Bigger size */
 font-family:'Brush Script MT', cursive;
-font-weight:600;
+font-weight:700;
 letter-spacing:1px;
-animation:fade 3s infinite;
-text-shadow:0 0 18px rgba(255,255,255,0.9);
+animation:fade 4s infinite;
+color:#ffffff;   /* Fixed white for visibility */
+text-shadow:0 0 20px rgba(0,0,0,0.6), 0 0 25px rgba(255,255,255,0.8);
 }
 
 @keyframes fade{
@@ -119,11 +121,10 @@ let i=0;
 
 function changeQuote(){
 q.innerText=quotes[i];
-q.style.color=`hsl(${Math.random()*360},100%,65%)`;
 i=(i+1)%quotes.length;
 }
 
-setInterval(changeQuote,3000);
+setInterval(changeQuote,4000);
 changeQuote();
 
 document.addEventListener("click",function(e){
